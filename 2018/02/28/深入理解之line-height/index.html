@@ -81,22 +81,22 @@
 
 
 
-<meta name="description" content="###一、line-height 介绍  linge-height 指两行文字之间的基线距离  行高的属性#####1、normal 行高的默认值该值一般为数值。不同的字体有不同的值，该值由字体的设计者提供。也正是该值是由不同的字体决定的，所以默认的行内盒子，在设置不同的字体时会有不同的高度。   #####2、number   该值为字体的倍数值  #####3、 length 固定单位值  p">
+<meta name="description" content="一、line-height 介绍 linge-height 指两行文字之间的基线距离  行高的属性1、normal 行高的默认值该值一般为数值。不同的字体有不同的值，该值由字体的设计者提供。也正是该值是由不同的字体决定的，所以默认的行内盒子，在设置不同的字体时会有不同的高度。   2、number 该值为字体的倍数值  3、 length 固定单位值 px em rem pt  4、百分比 该值为">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解之line-height">
 <meta property="og:url" content="http://yoursite.com/2018/02/28/深入理解之line-height/index.html">
 <meta property="og:site_name" content="Pa-wN">
-<meta property="og:description" content="###一、line-height 介绍  linge-height 指两行文字之间的基线距离  行高的属性#####1、normal 行高的默认值该值一般为数值。不同的字体有不同的值，该值由字体的设计者提供。也正是该值是由不同的字体决定的，所以默认的行内盒子，在设置不同的字体时会有不同的高度。   #####2、number   该值为字体的倍数值  #####3、 length 固定单位值  p">
+<meta property="og:description" content="一、line-height 介绍 linge-height 指两行文字之间的基线距离  行高的属性1、normal 行高的默认值该值一般为数值。不同的字体有不同的值，该值由字体的设计者提供。也正是该值是由不同的字体决定的，所以默认的行内盒子，在设置不同的字体时会有不同的高度。   2、number 该值为字体的倍数值  3、 length 固定单位值 px em rem pt  4、百分比 该值为">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9163297-862134d0f282b2cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9163297-b00bc3fbcde184af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9163297-7779185a8c8fb4a8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9163297-aad5599657f98635.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9163297-5d6ff2ed8a3325a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-02-27T16:31:54.503Z">
+<meta property="og:updated_time" content="2018-02-27T16:44:55.557Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解之line-height">
-<meta name="twitter:description" content="###一、line-height 介绍  linge-height 指两行文字之间的基线距离  行高的属性#####1、normal 行高的默认值该值一般为数值。不同的字体有不同的值，该值由字体的设计者提供。也正是该值是由不同的字体决定的，所以默认的行内盒子，在设置不同的字体时会有不同的高度。   #####2、number   该值为字体的倍数值  #####3、 length 固定单位值  p">
+<meta name="twitter:description" content="一、line-height 介绍 linge-height 指两行文字之间的基线距离  行高的属性1、normal 行高的默认值该值一般为数值。不同的字体有不同的值，该值由字体的设计者提供。也正是该值是由不同的字体决定的，所以默认的行内盒子，在设置不同的字体时会有不同的高度。   2、number 该值为字体的倍数值  3、 length 固定单位值 px em rem pt  4、百分比 该值为">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/9163297-862134d0f282b2cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -401,35 +401,29 @@
       
 
       
-        <p>###一、line-height 介绍</p>
-<blockquote>
+        <h3 id="一、line-height-介绍"><a href="#一、line-height-介绍" class="headerlink" title="一、line-height 介绍"></a>一、line-height 介绍</h3><blockquote>
 <p>linge-height 指两行文字之间的基线距离<br><img src="http://upload-images.jianshu.io/upload_images/9163297-862134d0f282b2cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <ul>
-<li>行高的属性<br><img src="http://upload-images.jianshu.io/upload_images/9163297-b00bc3fbcde184af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>#####1、normal 行高的默认值<br>该值一般为数值。不同的字体有不同的值，该值由字体的设计者提供。<br>也正是该值是由不同的字体决定的，所以默认的行内盒子，在设置不同的字体时会有不同的高度。</li>
+<li>行高的属性<br><img src="http://upload-images.jianshu.io/upload_images/9163297-b00bc3fbcde184af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><h5 id="1、normal-行高的默认值"><a href="#1、normal-行高的默认值" class="headerlink" title="1、normal 行高的默认值"></a>1、normal 行高的默认值</h5>该值一般为数值。不同的字体有不同的值，该值由字体的设计者提供。<br>也正是该值是由不同的字体决定的，所以默认的行内盒子，在设置不同的字体时会有不同的高度。</li>
 </ul>
 </blockquote>
-<p>#####2、number </p>
-<blockquote>
+<h5 id="2、number"><a href="#2、number" class="headerlink" title="2、number"></a>2、number</h5><blockquote>
 <p>该值为字体的倍数值</p>
 </blockquote>
-<p>#####3、 length 固定单位值</p>
-<blockquote>
+<h5 id="3、-length-固定单位值"><a href="#3、-length-固定单位值" class="headerlink" title="3、 length 固定单位值"></a>3、 length 固定单位值</h5><blockquote>
 <p>px em rem pt</p>
 </blockquote>
-<p>#####4、百分比</p>
-<blockquote>
+<h5 id="4、百分比"><a href="#4、百分比" class="headerlink" title="4、百分比"></a>4、百分比</h5><blockquote>
 <p>该值为字体的倍数</p>
 </blockquote>
-<p>#####5、继承</p>
-<ul>
+<h5 id="5、继承"><a href="#5、继承" class="headerlink" title="5、继承"></a>5、继承</h5><ul>
 <li>数值、百分比、em的区别在于他们的继承性质<blockquote>
 <p>数值继承的是父元素设置的值，再根据自己的字体大小来计算得出值<br>百分比和em则是继承父级计算好了之后的值<br>例如字体大小为60px, 父级字体为30px<br>如果父级行高为 1.5 那么他的子元素行高为 1.5 <em> 60<br>如果父级行高为 150% / 1.5em 那么他的子元素行高为 1.5 </em> 30</p>
 </blockquote>
 </li>
 </ul>
 <a id="more"></a>
-<p>###二、行内框盒子模型 </p>
-<ul>
+<h3 id="二、行内框盒子模型"><a href="#二、行内框盒子模型" class="headerlink" title="二、行内框盒子模型"></a>二、行内框盒子模型</h3><ul>
 <li>一个行内框模型可能有以下几种盒子 <a href="http://www.zhangxinxu.com/wordpress/2015/08/css-deep-understand-vertical-align-and-line-height/" target="_blank" rel="noopener">参考张鑫旭老师</a><br><img src="http://upload-images.jianshu.io/upload_images/9163297-7779185a8c8fb4a8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="http://upload-images.jianshu.io/upload_images/9163297-aad5599657f98635.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
 </ul>
 <p>1、内容区域指包含文字的区域，他的大小由font-size决定。</p>
@@ -450,7 +444,7 @@
 </ul>
 </blockquote>
 <p>4、包含盒子包含了所有的行框盒子，高度由各个行框盒子高度的累加。</p>
-<p>###三、内联盒子的高度<br>1、内联盒子的高度由行高间接来决定的。</p>
+<h3 id="三、内联盒子的高度"><a href="#三、内联盒子的高度" class="headerlink" title="三、内联盒子的高度"></a>三、内联盒子的高度</h3><p>1、内联盒子的高度由行高间接来决定的。</p>
 <blockquote>
 <p>内联盒子的高度是由 <strong>行间距</strong>和<strong>内容区域</strong>决定其的高度的,但是因为行间距的高度 + 内容区域的高度 必须 = 行高，所以如果设置了行高，就会间接的决定了高度。</p>
 </blockquote>
@@ -682,7 +676,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#四、行高的应用"><span class="nav-number">1.</span> <span class="nav-text">四、行高的应用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、line-height-介绍"><span class="nav-number">1.</span> <span class="nav-text">一、line-height 介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、normal-行高的默认值"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、normal 行高的默认值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、number"><span class="nav-number">1.0.2.</span> <span class="nav-text">2、number</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、-length-固定单位值"><span class="nav-number">1.0.3.</span> <span class="nav-text">3、 length 固定单位值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、百分比"><span class="nav-number">1.0.4.</span> <span class="nav-text">4、百分比</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5、继承"><span class="nav-number">1.0.5.</span> <span class="nav-text">5、继承</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、行内框盒子模型"><span class="nav-number">2.</span> <span class="nav-text">二、行内框盒子模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、内联盒子的高度"><span class="nav-number">3.</span> <span class="nav-text">三、内联盒子的高度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、行高的应用"><span class="nav-number">4.</span> <span class="nav-text">四、行高的应用</span></a></li></ol></div>
             
 
           </div>
