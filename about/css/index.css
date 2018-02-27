@@ -1,0 +1,26 @@
+@font-face {
+  font-family: default;
+  src: url(./font/default.woff2);
+}
+body {
+  font-family: default;
+}
+header {
+
+}
+header nav {
+  background: rgb(80, 77, 74);
+  padding: 20px;
+}
+header nav ul{
+  text-align: center;
+}
+header nav li {
+  display: inline-block;
+  color: white;
+  padding: 5px 0;
+  margin: 0 20px;
+  border-bottom: 2px solid rgb(90, 219, 144);
+}
+
+
