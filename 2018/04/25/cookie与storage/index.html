@@ -81,21 +81,17 @@
 
 
 
-<meta name="description" content="一、overflow的属性 visible 默认值hidden 溢出隐藏scroll 显示滚动条auto 溢出滚动inherit 继承">
+<meta name="description" content="HTTP Cookie 介绍 通常叫做cookie，用于客户端的数据储存（浏览器），通常用于储存用登录信息，偏好设置等。它可以用来告诉服务器请求是否来自同一个浏览器。  主要使用的地方 会话状态管理（记录登录信息，登录状态，购物车等） 个性化设置，（主题等） 浏览器行为跟踪（偏好设置等）  缺点 每次请求都会附带cookie信息，带来额外的性能负担。 cookie只能储存4k左右的数据，不适合储存">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深入理解之overflow">
-<meta property="og:url" content="http://yoursite.com/2018/04/25/深入理解之overflow/index.html">
+<meta property="og:title" content="cookie与storage">
+<meta property="og:url" content="http://yoursite.com/2018/04/25/cookie与storage/index.html">
 <meta property="og:site_name" content="Xuan">
-<meta property="og:description" content="一、overflow的属性 visible 默认值hidden 溢出隐藏scroll 显示滚动条auto 溢出滚动inherit 继承">
+<meta property="og:description" content="HTTP Cookie 介绍 通常叫做cookie，用于客户端的数据储存（浏览器），通常用于储存用登录信息，偏好设置等。它可以用来告诉服务器请求是否来自同一个浏览器。  主要使用的地方 会话状态管理（记录登录信息，登录状态，购物车等） 个性化设置，（主题等） 浏览器行为跟踪（偏好设置等）  缺点 每次请求都会附带cookie信息，带来额外的性能负担。 cookie只能储存4k左右的数据，不适合储存">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9163297-abd5b8b26729a680.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9163297-cf1a04c8c8a7b194.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9163297-10aaa23987c80e0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-04-24T18:22:33.434Z">
+<meta property="og:updated_time" content="2018-04-24T18:30:44.358Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深入理解之overflow">
-<meta name="twitter:description" content="一、overflow的属性 visible 默认值hidden 溢出隐藏scroll 显示滚动条auto 溢出滚动inherit 继承">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/9163297-abd5b8b26729a680.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="cookie与storage">
+<meta name="twitter:description" content="HTTP Cookie 介绍 通常叫做cookie，用于客户端的数据储存（浏览器），通常用于储存用登录信息，偏好设置等。它可以用来告诉服务器请求是否来自同一个浏览器。  主要使用的地方 会话状态管理（记录登录信息，登录状态，购物车等） 个性化设置，（主题等） 浏览器行为跟踪（偏好设置等）  缺点 每次请求都会附带cookie信息，带来额外的性能负担。 cookie只能储存4k左右的数据，不适合储存">
 
 
 
@@ -125,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/25/深入理解之overflow/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/25/cookie与storage/"/>
 
 
 
@@ -135,7 +131,7 @@
 <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
 
 
-  <title>深入理解之overflow | Xuan</title>
+  <title>cookie与storage | Xuan</title>
   
 
 
@@ -310,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/25/深入理解之overflow/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/25/cookie与storage/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xuan">
@@ -327,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">深入理解之overflow</h1>
+          <h1 class="post-title" itemprop="name headline">cookie与storage</h1>
         
 
         <div class="post-meta">
@@ -339,7 +335,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-25T02:21:47+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-25T02:28:43+08:00">
                 2018-04-25
               </time>
             
@@ -349,28 +345,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -399,47 +373,39 @@
       
 
       
-        <h3 id="一、overflow的属性"><a href="#一、overflow的属性" class="headerlink" title="一、overflow的属性"></a>一、overflow的属性</h3><blockquote>
-<p>visible 默认值<br>hidden 溢出隐藏<br>scroll 显示滚动条<br>auto 溢出滚动<br>inherit 继承</p>
-</blockquote>
-<a id="more"></a>
-<p>其中 hidden 、scroll 、auto属性会为元素创建BFC特性。</p>
-<h3 id="二-、-overflow-x-和-overflow-x-IE8"><a href="#二-、-overflow-x-和-overflow-x-IE8" class="headerlink" title="二 、 overflow-x 和 overflow-x (IE8+)"></a>二 、 overflow-x 和 overflow-x (IE8+)</h3><ul>
-<li>overflow-x 和overflow-y设置了同样的值， 则overflow为该值</li>
-<li>overflow-x 或者overflow-y 如果有一个值为visible，另一个值为 <strong>hidden</strong> <strong>scroll</strong> 和 <strong>auto</strong>其中一个，那么<strong>visible</strong>的那一边会被设置为auto.<h3 id="三、滚动条的宽高会影响元素的容纳宽高"><a href="#三、滚动条的宽高会影响元素的容纳宽高" class="headerlink" title="三、滚动条的宽高会影响元素的容纳宽高"></a>三、滚动条的宽高会影响元素的容纳宽高</h3><blockquote>
-<ul>
-<li><strong>HTML</strong>元素的滚动条会影响自身的宽度<br><img src="http://upload-images.jianshu.io/upload_images/9163297-abd5b8b26729a680.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
+        <h3 id="HTTP-Cookie-介绍"><a href="#HTTP-Cookie-介绍" class="headerlink" title="HTTP Cookie 介绍"></a>HTTP Cookie 介绍</h3><ul>
+<li>通常叫做cookie，用于客户端的数据储存（浏览器），通常用于储存用登录信息，偏好设置等。它可以用来告诉服务器请求是否来自同一个浏览器。</li>
 </ul>
-</blockquote>
-</li>
+<h3 id="主要使用的地方"><a href="#主要使用的地方" class="headerlink" title="主要使用的地方"></a>主要使用的地方</h3><ul>
+<li>会话状态管理（记录登录信息，登录状态，购物车等）</li>
+<li>个性化设置，（主题等）</li>
+<li>浏览器行为跟踪（偏好设置等）</li>
 </ul>
-<blockquote>
-<ul>
-<li><p>其他元素则会影响他的可容乃宽度 比如说元素的宽度为100px，他能容乃的宽度为:<br><img src="http://upload-images.jianshu.io/upload_images/9163297-cf1a04c8c8a7b194.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>100px - 滚动条宽度 （一般为17px）<br>如果设置overflow: auto`当里面元素大于这个宽度是就会出现滚动条</p>
-</li>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>每次请求都会附带cookie信息，带来额外的性能负担。</li>
+<li>cookie只能储存4k左右的数据，不适合储存复杂的需求。</li>
+<li>http情况下为明文传递，可能造成安全问题。</li>
+<li>在web应用中，cookie通常被用于授权行为，如果窃取了用户cookie，可能导致授权用户的会话受到攻击</li>
 </ul>
-</blockquote>
-<h3 id="四、overflow实用场景"><a href="#四、overflow实用场景" class="headerlink" title="四、overflow实用场景"></a>四、overflow实用场景</h3><ul>
-<li>阻止margin穿透<blockquote>
-<p>利用BFC特性，为元素设置overflow: hidden / scroll / auto</p>
-</blockquote>
-</li>
-<li>清除浮动<blockquote>
-<p>为元素设置overflow: hidden / auto / scroo清除子元素浮动带来的高度坍塌情况 （原因是使用了BFC特性/ BFC元素的高度会计算包含浮动的子元素）</p>
-</blockquote>
-</li>
-<li>自适应布局<blockquote>
-<p>为一个block元素设置overflow值和一个float的元素并排布局，就会形成block元素的自适应，(原因是因为block元素还保持着块级元素的特性，宽的会100%填满父级元素、但是设置为BFC后，又不得不与外界保持完全独立的关系，所以会进可能个填充剩余的宽度，实现了自适应宽度。)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">  background: #ccc;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line">.child1 &#123;</span><br><span class="line">  width: 100px;</span><br><span class="line">  height: 100px;</span><br><span class="line">  background: green;</span><br><span class="line">  float: left;</span><br><span class="line">  margin-right: 10px;</span><br><span class="line">&#125;</span><br><span class="line">.child2 &#123;</span><br><span class="line">  background: yellow;</span><br><span class="line">  height: 100px;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</blockquote>
+<h3 id="使用cookie"><a href="#使用cookie" class="headerlink" title="使用cookie"></a>使用cookie</h3><ul>
+<li>服务器端一般在响应头部中加入对cookie的设置<br>例如: Set-Cookie: <cookie名称>=<cookie值></cookie值></cookie名称></li>
+<li><p>浏览器端可以用js控制cookie<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Set-Cookie" target="_blank" rel="noopener">详细使用文档</a></p>
+<h5 id="读取cookie："><a href="#读取cookie：" class="headerlink" title="读取cookie："></a>读取cookie：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function getCookie (name) &#123;</span><br><span class="line">  var cookieName = encodeURIComponent(name) + &quot;=&quot;,</span><br><span class="line">      cookieStart = document.cookie.indexOf(cookieName),</span><br><span class="line">      cookieValue = null;</span><br><span class="line">  if (cookieStart &gt; -1) &#123;</span><br><span class="line">    var cookieEnd = document.cookie.indexOf(&quot;;&quot;, cookieStart);</span><br><span class="line">    if (cookieEnd == -1) &#123;</span><br><span class="line">      cookieEnd = document.cookie.length;</span><br><span class="line">    &#125;</span><br><span class="line">    cookieValue = decodeURIComponent(document.cookie.substring(cookieStart + cookieName.length, cookieEnd));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return cookieValue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="设置cookie"><a href="#设置cookie" class="headerlink" title="设置cookie"></a>设置cookie</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function setCookie (name, value, expires, path, secure, httpOnly) &#123;</span><br><span class="line">  var cookieText = encodeURIComponent(name) + &quot;=&quot; + encodeURIComponent(value);</span><br><span class="line"></span><br><span class="line">  if (expires instanceof Date) &#123;</span><br><span class="line">    // 判断是否是Date的实例</span><br><span class="line">    cookieText += &quot;; expires=&quot; + expires.toGTSTring();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  if (path) &#123;</span><br><span class="line">    cookieText += &quot;; path=&quot; + path;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  if (httpOnly) &#123;</span><br><span class="line">    cookieText += &quot;; HttpOnly&quot;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  if (secure) &#123;</span><br><span class="line">    cookieText += &quot;; secure&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  document.cookie = cookieText;</span><br><span class="line">  return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/9163297-10aaa23987c80e0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<ul>
-<li>使用overflow: hidden 实现 文本省略<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ellipsis &#123;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  white-space: nowrap;</span><br><span class="line">  text-overflow: ellipsis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<h3 id="storage介绍"><a href="#storage介绍" class="headerlink" title="storage介绍"></a>storage介绍</h3><ul>
+<li>提供了浏览器本地储存和会话储存，可以添加删除修改数据项</li>
+<li>HTML5规定的一部分，用来解决cookie带来的一部分限制，当数据被储存到客户端上时，无需持续的将数据发回本地服务器。</li>
+<li>和cookie一样，只能储存字符串类型数据。</li>
+<li>WebStorage 支持事件通知机制，可以将数据更新的通知发送给监听者。Web Storage 的 api 接口使用更方便。(注意在当前网页下改变数据不会在当前网页上触发事件此事件）</li>
 </ul>
+<h4 id="会话储存Window-sessionStorage-浏览器关闭就会清除"><a href="#会话储存Window-sessionStorage-浏览器关闭就会清除" class="headerlink" title="会话储存Window.sessionStorage (浏览器关闭就会清除)"></a>会话储存Window.sessionStorage (浏览器关闭就会清除)</h4><h5 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.setItem(&apos;name&apos;, &apos;value&apos;)</span><br></pre></td></tr></table></figure>
+<h5 id="读取"><a href="#读取" class="headerlink" title="读取"></a>读取</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.getItem(&apos;name&apos;)</span><br></pre></td></tr></table></figure>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.removeItem(&apos;name&apos;)</span><br><span class="line">sessionStorage.clear(&apos;name&apos;) // 清除所有</span><br></pre></td></tr></table></figure>
+<h4 id="本地储存Window-localStorage-储存在本地，需要手动清除"><a href="#本地储存Window-localStorage-储存在本地，需要手动清除" class="headerlink" title="本地储存Window.localStorage (储存在本地，需要手动清除)"></a>本地储存Window.localStorage (储存在本地，需要手动清除)</h4><h5 id="设置-1"><a href="#设置-1" class="headerlink" title="设置"></a>设置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localStorage.setItem(&apos;name&apos;, &apos;value&apos;)</span><br></pre></td></tr></table></figure>
+<h5 id="读取-1"><a href="#读取-1" class="headerlink" title="读取"></a>读取</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localStorage.getItem(&apos;name&apos;)</span><br></pre></td></tr></table></figure>
+<h3 id="删除-1"><a href="#删除-1" class="headerlink" title="删除"></a>删除</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">localStorage.removeItem(&apos;name&apos;)</span><br><span class="line">localStorage.clear(&apos;name&apos;) // 清除所有</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -464,8 +430,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/25/深入理解之margin/" rel="next" title="深入理解之margin">
-                <i class="fa fa-chevron-left"></i> 深入理解之margin
+              <a href="/2018/04/25/跨域方案/" rel="next" title="跨域方案">
+                <i class="fa fa-chevron-left"></i> 跨域方案
               </a>
             
           </div>
@@ -474,8 +440,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/25/跨域方案/" rel="prev" title="跨域方案">
-                跨域方案 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/25/实现call，apply，bind，new/" rel="prev" title="实现call，apply，bind，new">
+                实现call，apply，bind，new <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -666,7 +632,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、overflow的属性"><span class="nav-number">1.</span> <span class="nav-text">一、overflow的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-、-overflow-x-和-overflow-x-IE8"><span class="nav-number">2.</span> <span class="nav-text">二 、 overflow-x 和 overflow-x (IE8+)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、滚动条的宽高会影响元素的容纳宽高"><span class="nav-number">3.</span> <span class="nav-text">三、滚动条的宽高会影响元素的容纳宽高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、overflow实用场景"><span class="nav-number">4.</span> <span class="nav-text">四、overflow实用场景</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-Cookie-介绍"><span class="nav-number">1.</span> <span class="nav-text">HTTP Cookie 介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要使用的地方"><span class="nav-number">2.</span> <span class="nav-text">主要使用的地方</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">3.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用cookie"><span class="nav-number">4.</span> <span class="nav-text">使用cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#读取cookie："><span class="nav-number">4.0.1.</span> <span class="nav-text">读取cookie：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#设置cookie"><span class="nav-number">4.0.2.</span> <span class="nav-text">设置cookie</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#storage介绍"><span class="nav-number">5.</span> <span class="nav-text">storage介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#会话储存Window-sessionStorage-浏览器关闭就会清除"><span class="nav-number">5.1.</span> <span class="nav-text">会话储存Window.sessionStorage (浏览器关闭就会清除)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#设置"><span class="nav-number">5.1.1.</span> <span class="nav-text">设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#读取"><span class="nav-number">5.1.2.</span> <span class="nav-text">读取</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-number">6.</span> <span class="nav-text">删除</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地储存Window-localStorage-储存在本地，需要手动清除"><span class="nav-number">6.1.</span> <span class="nav-text">本地储存Window.localStorage (储存在本地，需要手动清除)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#设置-1"><span class="nav-number">6.1.1.</span> <span class="nav-text">设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#读取-1"><span class="nav-number">6.1.2.</span> <span class="nav-text">读取</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除-1"><span class="nav-number">7.</span> <span class="nav-text">删除</span></a></li></ol></div>
             
 
           </div>
