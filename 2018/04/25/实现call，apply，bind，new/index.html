@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="Xuan">
 <meta property="og:description" content="模仿call的实现12345678910111213141516Function.prototype._call = function (context) &amp;#123;  // 传入的this值为null或者为空的时候  var context = context || window;  var args = [];  for (var i = 1; i &amp;lt; arguments.lengt">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-24T18:35:12.225Z">
+<meta property="og:updated_time" content="2018-04-24T18:38:25.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现call，apply，bind，new">
 <meta name="twitter:description" content="模仿call的实现12345678910111213141516Function.prototype._call = function (context) &amp;#123;  // 传入的this值为null或者为空的时候  var context = context || window;  var args = [];  for (var i = 1; i &amp;lt; arguments.lengt">
@@ -399,11 +399,13 @@
 <li>模仿<code>call</code>的实现<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype._call = function (context) &#123;</span><br><span class="line">  // 传入的this值为null或者为空的时候</span><br><span class="line">  var context = context || window;</span><br><span class="line"></span><br><span class="line">  var args = [];</span><br><span class="line">  for (var i = 1; i &lt; arguments.length; i++) &#123;</span><br><span class="line">    args.push(&apos;arguments[&apos; + i + &quot;]&quot;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  context.fn = this;</span><br><span class="line"></span><br><span class="line">  var res = eval(&apos;context.fn(&apos;+ args +&apos;)&apos;);</span><br><span class="line"></span><br><span class="line">  delete context.fn;</span><br><span class="line">  return res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<!--more__>
-> - 要实现call的功能主要在于把函数的this指向我们想要的对象上
-把函数赋值给要指向的对象的一个属性，然后再调用就该属性。
- >- 接着用`eval`的方式调用该函数，以达到参数的正确传递。
- > 类似于 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">- apply的实现 (实现类似call)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<blockquote>
+<ul>
+<li>要实现call的功能主要在于把函数的this指向我们想要的对象上<br>把函数赋值给要指向的对象的一个属性，然后再调用就该属性。</li>
+<li>接着用<code>eval</code>的方式调用该函数，以达到参数的正确传递。<br>类似于 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">- apply的实现 (实现类似call)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</blockquote>
 <pre><code>Function.prototype._apply = function (context, arr) {
   // 传入的this值为null或者为空的时候
   var context = context || window;
@@ -447,7 +449,7 @@ _new(Otaku, ...)
 <blockquote>
 <p>new的功能主要是返回一个新的对象，把对象指向函数的this值，然后把对象<code>__proto__</code>属性指向函数的<code>prototype</code>属性<br>要注意的是如果构造函数返回的是一个对象，就直接放回该对，否则返回我们想要的新对象。</p>
 </blockquote>
--->
+
       
     </div>
     

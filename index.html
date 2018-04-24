@@ -395,61 +395,17 @@
 
       
         
-          
-            <ul>
+          <ul>
 <li>模仿<code>call</code>的实现<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype._call = function (context) &#123;</span><br><span class="line">  // 传入的this值为null或者为空的时候</span><br><span class="line">  var context = context || window;</span><br><span class="line"></span><br><span class="line">  var args = [];</span><br><span class="line">  for (var i = 1; i &lt; arguments.length; i++) &#123;</span><br><span class="line">    args.push(&apos;arguments[&apos; + i + &quot;]&quot;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  context.fn = this;</span><br><span class="line"></span><br><span class="line">  var res = eval(&apos;context.fn(&apos;+ args +&apos;)&apos;);</span><br><span class="line"></span><br><span class="line">  delete context.fn;</span><br><span class="line">  return res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<!--more__>
-> - 要实现call的功能主要在于把函数的this指向我们想要的对象上
-把函数赋值给要指向的对象的一个属性，然后再调用就该属性。
- >- 接着用`eval`的方式调用该函数，以达到参数的正确传递。
- > 类似于 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">- apply的实现 (实现类似call)</span><br></pre></td></tr></table></figure>
-<pre><code>Function.prototype._apply = function (context, arr) {
-  // 传入的this值为null或者为空的时候
-  var context = context || window;
-  context.fn = this;
-  var res;
-
-  if (!arr) {
-    res = context.fn();
-  }
-  else {
-    var args = [];
-    for (var i = 0; i &lt; arr.length; i++) {
-      (function (i) {
-        args.push(&apos;arr[&apos; + i + &apos;]&apos;);
-      })(i)
-    }
-    var res = eval(&apos;context.fn(&apos;+ args +&apos;)&apos;);
-}
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- bind的实现</span><br></pre></td></tr></table></figure>
-<p>  Function.prototype._bind = function (context) {<br>    if (typeof this !== “function”) {<br>      throw new Error(“Function.prototype.bind - what is trying to be bound is not callable”);<br>    }<br>    var that = this;<br>    var args = Array.prototype.slice.call(arguments, 1);</p>
-<pre><code>var fn = function () {
-  args.concat(Array.prototype.slice.call(arguments));
-  return that.apply(this instanceof fn ? this : context, args);
-}
-
-fn.prototype = Object.create(this.prototype);
-return fn;
-</code></pre><p>  }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; bind的实现在于利用闭包保留要 __调用函数__ 和 要指向__上下文对象__的引用，下次调用时再执行该函数。要注意两个点。</span><br><span class="line">&gt;-  一个是参数的合并，在调用bind函数时传入的后续参数会和执行该函数时传入的参数合并起来。</span><br><span class="line">&gt;- 二是用new调用该函数时的情况，在用new调用该函数时函数里面的this指向会指向到new出来的新对象上，所以在调用的时候要判断一个是否是new调用的。</span><br><span class="line"></span><br><span class="line">- new的实现</span><br></pre></td></tr></table></figure></p>
-<pre><code>function _new () 
-  var args = Array.prototype.slice.call(arguments);
-  var fn = args.shift();
-
-  var context = Object.create(fn.prototype);
-
-  var res = fn.apply(context, args);
-  return (typeof res === object &amp;&amp; res !== null) ? res : context;
-}
-// 用法 第一个参数为构造函数，之后的为参数。
-_new(Otaku, ...)
-</code></pre><p>```</p>
-<blockquote>
-<p>new的功能主要是返回一个新的对象，把对象指向函数的this值，然后把对象<code>__proto__</code>属性指向函数的<code>prototype</code>属性<br>要注意的是如果构造函数返回的是一个对象，就直接放回该对，否则返回我们想要的新对象。</p>
-</blockquote>
--->
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/25/实现call，apply，bind，new/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -691,35 +647,15 @@ _new(Otaku, ...)
 
       
         
-          
-            <a id="more"></a>
-<h3 id="一、JSONP"><a href="#一、JSONP" class="headerlink" title="一、JSONP"></a>一、JSONP</h3><ul>
+          <h3 id="一、JSONP"><a href="#一、JSONP" class="headerlink" title="一、JSONP"></a>一、JSONP</h3><ul>
 <li><h6 id="JSON-with-padding-简称JSONP-，实现原理"><a href="#JSON-with-padding-简称JSONP-，实现原理" class="headerlink" title="JSON with padding 简称JSONP ，实现原理"></a>JSON with padding 简称JSONP ，实现原理</h6><p>通过动态<code>&lt;script&gt;</code>元素，指定src属性为一个跨域的URL。跟后端约定一个函数的调用。通常回调的函数名在URL中指定，例如：</p>
-<!--more-->
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;http://freegeorp.net/json/?callback=handleResponse&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>返回的数据类似于,直接当做是JS来执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">handleResponse(&#123;name: &apos;nama&apos;, value: &apos;value&apos;&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>可以通过动态添加script元素加载</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function loadScript (url) &#123;</span><br><span class="line">  var script = document.createElement(&apos;script&apos;);</span><br><span class="line">  script.src = url;</span><br><span class="line">  var head = document.getElementsByTagName(&apos;head&apos;)[0];</span><br><span class="line">  head.appendChild(script);</span><br><span class="line">  head.removeChild(script);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><h4 id="JSONP的一些限制"><a href="#JSONP的一些限制" class="headerlink" title="JSONP的一些限制"></a>JSONP的一些限制</h4></li>
-</ul>
-<ol>
-<li>只可以使用GET请求</li>
-<li>难以监听得知是否请求失败 (script.onerror) IE9+</li>
-</ol>
-<h1 id="二、cors-跨资源共享"><a href="#二、cors-跨资源共享" class="headerlink" title="二、cors(跨资源共享)"></a>二、cors(跨资源共享)</h1><p>当浏览器发送一个XMLHttpRequest请求时，如果发现该请求不符合同源策略，会给请求头部添加一个额外的<code>origin</code>,其中包含着请求页面的源信息（协议、域名、端口），以便服务器根据这个头部信息决定是否给予响应。</p>
-<ul>
-<li><p>浏览器会自动添加一个请求头</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Origin: http://www.baidu.com</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果服务器允许这个请求，会在响应头添加一下信息，否则浏览器会报错。<br>(1).Access-Control-Allow-Origin: <em><br>“</em>”表示服务器接收任意域名的请求<br>(2)Access-Control-Allow-Credentials: true<br>表示是否允许发送该服务设置的cookie，该cookie是不可读写的。本站的cookie并不会被发送到该服务器。同时还要设置 <code>xhr.withCredentials = true</code>且<code>Access-Control-Allow-Origin</code>要设置为请求的域名。<br>(3)Access-Control-Expose-Headers: foo<br><code>getRequeseHeader()</code>Api可以拿到其它头部信息</p>
-</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/25/跨域方案/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
